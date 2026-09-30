@@ -1,0 +1,6 @@
+{
+  "name": "Textrnr — Systematic Art & Portfolio",
+  "description": "Minimal white portfolio and digital archive for artist Textrnr, featuring systematic computational art, overprint matrices, and algorithmic editions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

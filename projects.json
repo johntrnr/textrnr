@@ -161,13 +161,18 @@
     "slug": "dense",
     "name": "dense",
     "kind": "macos",
-    "desc": "native macos ai upscaler. magnific-style creative detail, with its own approach.",
-    "intro": "a native macos ai upscaler in the spirit of magnific: it doesn't just enlarge an image, it rebuilds detail and texture as it goes. same goal as magnific, but built around a different approach of its own.",
+    "desc": "native macos ai upscaler. seedvr2 running locally on metal, magnific-style detail with its own approach.",
+    "intro": "a native macos ai upscaler built on seedvr2, running locally on the mac with metal. like magnific, it re-invents detail where the input lacks it — but instead of a black box, dense opens up the whole pipeline: how the input is prepared so the model imagines more, how huge images are tiled, and how memory is managed on apple silicon.",
     "features": [
-      "native macos app",
-      "ai upscaling that rebuilds detail and texture, not just pixels",
-      "magnific-style creative results, built on its own approach",
-      "before / after comparison while you work"
+      "seedvr2 restoration model running locally, accelerated with metal",
+      "batch queue for several images",
+      "original / result split and side-by-side views, zoom up to 800%",
+      "input scale, pre-blur and input grain — remove information so the model re-invents more detail",
+      "clean-up before diffusion: denoise, jpeg cleanup, pre-sharpen, pre-contrast, pre-saturation",
+      "tiled upscaling with overlap, blend and feather, like ultimate sd upscale — for huge outputs on unified memory",
+      "fidelity & finish controls and vae tiling",
+      "memory controls: dit and vae offload",
+      "saveable presets"
     ]
   },
   {

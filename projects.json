@@ -155,9 +155,13 @@
     "slug": "dense",
     "name": "dense",
     "kind": "macos",
-    "desc": "native macos app.",
-    "intro": "a native macos app.",
-    "features": []
+    "desc": "native macos ai upscaler. magnific-style creative detail, with its own approach.",
+    "intro": "a native macos ai upscaler in the spirit of magnific: it doesn't just enlarge an image, it rebuilds detail and texture as it goes. same goal as magnific, but built around a different approach of its own.",
+    "features": [
+      "native macos app",
+      "ai upscaling with creative detail generation",
+      "magnific-style results, its own approach"
+    ]
   },
   {
     "slug": "stride",

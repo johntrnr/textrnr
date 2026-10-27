@@ -125,19 +125,16 @@ const img = (src, alt, w, h) => `<img src="${esc(src)}" alt="${low(alt)}"${w && 
 
 // ── bio ────────────────────────────────────────────────────────
 const B = JSON.parse(readFileSync('bio.json', 'utf8'));
-const ext = (u, t) => u ? `<a href="${esc(u)}" target="_blank" rel="noopener">${t}</a>` : t;
+const isExt = u => /^https?:/.test(u || '');
+const link = (u, t) => !u ? t : `<a href="${esc(u)}"${isExt(u) ? ' target="_blank" rel="noopener"' : ''}>${t}${isExt(u) ? ' ↗' : ''}</a>`;
+const section = (title, inner) => `<section class="cv-sec"><h2>${low(title)}</h2><div>${inner}</div></section>`;
 write('bio/index.html', page({
-  depth: 1, active: 'bio', title: 'bio', desc: B.bio[0],
-  body: `<section class="intro"><p>${low(B.name)}</p></section>
-<section class="bio">
-<div class="b-text">${B.bio.map(t => `<p>${low(t)}</p>`).join('')}</div>
-<h2>numbers</h2>
-<ul class="metrics">${B.metrics.map(m => `<li><span>${low(m.value)}</span><span class="dim">${low(m.label)}</span></li>`).join('')}</ul>
-<h2>achievements</h2>
-<ol class="ach">${B.achievements.map(a => `<li><span class="dim">${low(a.year)}</span><span>${ext(a.url, low(a.text))}</span></li>`).join('')}</ol>
-<h2>elsewhere</h2>
-<ul class="links">${B.links.map(l => `<li>${ext(l.url, `${low(l.name)} ↗`)}</li>`).join('')}</ul>
-</section>`
+  depth: 1, active: 'bio', title: 'bio', desc: B.statement[0],
+  body: `<section class="cv-head"><p>${low(B.name)} <span class="dim">(${low(B.alias)})</span></p><p class="dim">${[B.role, B.location, B.active].map(low).join(' · ')}</p></section>
+<ul class="figs">${B.figures.map(f => `<li><span>${low(f.value)}</span><span class="dim">${low(f.label)}</span></li>`).join('')}</ul>
+${section('statement', `<div class="stmt">${B.statement.map(t => `<p>${low(t)}</p>`).join('')}</div>`)}
+${B.sections.map(sec => section(sec.title, `<ul class="rows ${sec.layout === 'inline' ? 'inline' : 'stack'}">${sec.rows.map(r => `<li><span class="rk">${link(r.url, low(r.k))}</span><span class="rv">${low(r.v)}</span></li>`).join('')}</ul>`)).join('\n')}
+${section('elsewhere', `<ul class="links">${B.links.map(l => `<li>${link(l.url, low(l.name))}</li>`).join('')}</ul>`)}`
 }));
 
 // ── posts ──────────────────────────────────────────────────────

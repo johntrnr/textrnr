@@ -1,5 +1,7 @@
 # textrnr
 
+live at https://txtrnr.github.io/textrnr/
+
 ultra-light site for my apps. plain html + one stylesheet, no framework, no dependencies. hosted on github pages.
 
 pages: **tools** (index + one page per tool) · **gallery** · **posts**

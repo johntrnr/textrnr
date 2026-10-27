@@ -1,7 +1,7 @@
 // textrnr — builds the whole site. no dependencies. run: node build.mjs
 //   index.html            ← projects.json + apps/
 //   projects/<slug>/      ← one page per project (cover from covers/<slug>.jpg)
-//   gallery/index.html    ← every image in gallery/
+//   bio/index.html        ← bio.json (bio, metrics, achievements, links)
 //   posts/index.html      ← posts.json (x.com posts)
 import { readFileSync, writeFileSync, readdirSync, existsSync, statSync, mkdirSync, rmSync } from 'node:fs';
 import { dirname } from 'node:path';
@@ -20,7 +20,7 @@ const CSS = readFileSync('style.css', 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').r
 
 // ── shared shell ───────────────────────────────────────────────
 const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230a0a0a'/%3E%3Crect x='10' y='10' width='3' height='3' fill='%23ff2a12'/%3E%3C/svg%3E";
-const NAV = [['projects', ''], ['gallery', 'gallery/'], ['posts', 'posts/']];
+const NAV = [['projects', ''], ['posts', 'posts/'], ['bio', 'bio/']];
 
 function page({ depth = 0, active = '', title = '', desc = 'apps, tools & experiments by textrnr.', body, scripts = '' }) {
   const r = '../'.repeat(depth);
@@ -109,7 +109,7 @@ projects.forEach((p, i) => {
   }));
 });
 
-// ── lightbox (gallery + posts) ─────────────────────────────────
+// ── lightbox (posts) ─────────────────────────────────
 const LIGHTBOX = `<dialog id="lb"><img alt=""><p></p></dialog>
 <script>
 const d=document.getElementById('lb'),im=d.querySelector('img'),cap=d.querySelector('p'),a=[...document.querySelectorAll('a.lb')];let k=0;
@@ -123,17 +123,21 @@ let x0=null;d.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passiv
 const smOf = (dir, src) => { const i = src.lastIndexOf('/') + 1; const sm = `${src.slice(0, i)}sm/${src.slice(i)}`; return existsSync(`${dir}/${sm}`) ? sm : src; };
 const img = (src, alt, w, h) => `<img src="${esc(src)}" alt="${low(alt)}"${w && h ? ` width="${w}" height="${h}"` : ''} loading="lazy" decoding="async">`;
 
-// ── gallery ────────────────────────────────────────────────────
-// newest first by filename: name files like 2026-10-27-night-drive.jpg
-const shots = ls('gallery').filter(f => IMG.test(f)).sort().reverse();
-const caption = f => f.replace(IMG, '').replace(/^\d{4}-\d{2}-\d{2}[-_ ]?/, '').replace(/[-_]+/g, ' ').trim();
-write('gallery/index.html', page({
-  depth: 1, active: 'gallery', title: 'gallery', desc: 'photos and work by textrnr.',
-  body: `<section class="intro"><p>photos, renders and outputs from the tools.</p><span class="dim">${shots.length} images</span></section>
-${shots.length
-    ? `<div class="grid">${shots.map(f => `<a class="lb" href="${esc(f)}" data-cap="${low(caption(f))}">${img(smOf('gallery', f), caption(f))}</a>`).join('')}</div>`
-    : `<p class="empty">nothing here yet.</p>`}`,
-  scripts: shots.length ? LIGHTBOX : ''
+// ── bio ────────────────────────────────────────────────────────
+const B = JSON.parse(readFileSync('bio.json', 'utf8'));
+const ext = (u, t) => u ? `<a href="${esc(u)}" target="_blank" rel="noopener">${t}</a>` : t;
+write('bio/index.html', page({
+  depth: 1, active: 'bio', title: 'bio', desc: B.bio[0],
+  body: `<section class="intro"><p>${low(B.name)}</p></section>
+<section class="bio">
+<div class="b-text">${B.bio.map(t => `<p>${low(t)}</p>`).join('')}</div>
+<h2>numbers</h2>
+<ul class="metrics">${B.metrics.map(m => `<li><span>${low(m.value)}</span><span class="dim">${low(m.label)}</span></li>`).join('')}</ul>
+<h2>achievements</h2>
+<ol class="ach">${B.achievements.map(a => `<li><span class="dim">${low(a.year)}</span><span>${ext(a.url, low(a.text))}</span></li>`).join('')}</ol>
+<h2>elsewhere</h2>
+<ul class="links">${B.links.map(l => `<li>${ext(l.url, `${low(l.name)} ↗`)}</li>`).join('')}</ul>
+</section>`
 }));
 
 // ── posts ──────────────────────────────────────────────────────
@@ -155,4 +159,4 @@ ${feed.length
   scripts: feed.length ? LIGHTBOX : ''
 }));
 
-console.log(`built — ${projects.length} projects (${live} live), ${shots.length} gallery images, ${feed.length}/${wanted.size} posts`);
+console.log(`built — ${projects.length} projects (${live} live), ${feed.length}/${wanted.size} posts`);

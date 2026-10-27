@@ -1,0 +1,35 @@
+{
+  "name": "tex — textrnr",
+  "bio": [
+    "tex is a belgian hybrid artist working between photography, ai and code.",
+    "he started making ai art in 2022 with disco diffusion, and has since released 1/1s and editions on superrare, foundation, transient labs, objkt and ninfa. the work is quiet and atmospheric: buildings, homes and ordinary neighbourhoods at different hours of the day, and lately blurred night photography in neon reds and blues.",
+    "alongside the art he designs and builds his own creative tools — cameras, dithering and halftone studios, upscalers, editors — collected on this site."
+  ],
+  "metrics": [
+    { "value": "2.85 eth", "label": "verified sales on superrare" },
+    { "value": "2.5 eth", "label": "highest sale — alone, superrare" },
+    { "value": "6", "label": "platforms: superrare, foundation, transient, objkt, ninfa, opensea" },
+    { "value": "6", "label": "collections on transient labs" },
+    { "value": "30+", "label": "works in existence, foundation" },
+    { "value": "2022", "label": "first ai works" },
+    { "value": "14", "label": "apps & tools built" }
+  ],
+  "achievements": [
+    { "year": "2023", "text": "featured in “6 emerging ai artists to keep an eye on in 2023” — “a photographer who has artfully integrated ai into his work”, “a nuanced and understated style that sets him apart from his peers”", "url": "https://www.kaloh.xyz/p/keeping-pace-with-the-ai-art-movement" },
+    { "year": "—", "text": "alone, 1/1 on superrare, sold for 2.5 eth", "url": "https://superrare.com/textrnr" },
+    { "year": "—", "text": "golden littoral, 1/1 on superrare, sold for 0.35 eth", "url": "https://superrare.com/textrnr" },
+    { "year": "—", "text": "collections existence and breathe on foundation", "url": "https://foundation.app/@Textrnr" },
+    { "year": "—", "text": "chromatic dreams, remember, the last house, palm springs when the sun goes down, moments. and textrnr on transient labs", "url": "https://www.transient.xyz/@textrnr" },
+    { "year": "2022", "text": "early ai works with disco diffusion — industrial cyberpunk zone, 8.2k views", "url": "https://www.deviantart.com/texturner/art/Industrial-Cyberpunk-Zone-922681299" }
+  ],
+  "links": [
+    { "name": "x", "url": "https://x.com/textrnr" },
+    { "name": "instagram", "url": "https://instagram.com/textrnr" },
+    { "name": "superrare", "url": "https://superrare.com/textrnr" },
+    { "name": "foundation", "url": "https://foundation.app/@Textrnr" },
+    { "name": "transient", "url": "https://www.transient.xyz/@textrnr" },
+    { "name": "objkt", "url": "https://objkt.com/profile/textrnr/created" },
+    { "name": "ninfa", "url": "https://ninfa.io/@Textrnr" },
+    { "name": "opensea", "url": "https://opensea.io/textrnr" }
+  ]
+}

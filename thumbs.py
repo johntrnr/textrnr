@@ -1,6 +1,5 @@
 # textrnr — makes small, phone-friendly copies of images. skips ones that already exist.
 #   posts/img/<f>        → posts/img/sm/<f>       (720px wide)
-#   gallery/<f>          → gallery/sm/<f>         (720px wide)
 #   covers/<slug>.<ext>  → covers/thumbs/<slug>.jpg (160×200 crop)
 # needs pillow (the publish action installs it). run: python3 thumbs.py
 import os, glob
@@ -30,5 +29,4 @@ def cover_thumbs():
         print('made', out)
 
 if os.path.isdir('posts/img'): small('posts/img', 'posts/img/sm')
-if os.path.isdir('gallery'): small('gallery', 'gallery/sm')
 cover_thumbs()

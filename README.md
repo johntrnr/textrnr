@@ -4,7 +4,7 @@ live at https://txtrnr.github.io/textrnr/
 
 ultra-light site for my apps. plain html + one stylesheet, no framework, no dependencies. hosted on github pages.
 
-pages: **projects** (index + one page per project) · **gallery** · **posts**
+pages: **projects** (index + one page per project) · **posts** · **bio**
 
 ## publish an app
 
@@ -27,9 +27,9 @@ everything is in `projects.json`, one entry per project:
 
 each project's image is `covers/<slug>.jpg` (4:5, e.g. 960×1200), with a small copy in `covers/thumbs/<slug>.jpg` (160×200) for the list. replace them with real screenshots any time; if there's no thumb, the list uses the full image.
 
-## gallery
+## bio
 
-drop images into `gallery/`. newest first by file name, so use dates: `2026-10-27-night-drive.jpg` → caption "night drive".
+`bio.json` holds the bio text, the numbers, achievements and links on the bio page. edit the numbers there when you sell more work.
 
 ## posts
 
@@ -53,12 +53,12 @@ remove a link to hide that post. `fetch-posts.mjs` does the downloading.
 | file | what it is |
 | --- | --- |
 | `style.css` | the whole design |
-| `build.mjs` | writes `index.html`, `projects/`, `gallery/index.html`, `posts/index.html` |
+| `build.mjs` | writes `index.html`, `projects/`, `posts/index.html`, `bio/index.html` |
 | `fetch-posts.mjs` | downloads photos from the x posts in `posts.json` |
 | `thumbs.py` | makes small copies of images for phones |
 | `.github/workflows/pages.yml` | fetches post photos, builds and deploys on every push to `main` |
 
-`thumbs.py` makes phone-sized copies of post and gallery photos (and list thumbnails for covers); the publish action runs it.
+`thumbs.py` makes phone-sized copies of post photos (and list thumbnails for covers); the publish action runs it.
 
 generated pages are overwritten on every build, so edit the json files, not the html. run `node build.mjs` to preview locally.
 

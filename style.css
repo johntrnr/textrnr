@@ -37,24 +37,22 @@ nav a[aria-current]::before{content:"";width:4px;height:4px;border-radius:50%;ba
 footer{padding-top:48px;color:var(--dim);font-size:10px}
 
 /* ── page intro ──────────────────────────────────── */
-.intro{padding:40px 0 20px;display:flex;flex-direction:column;gap:12px}
+.intro{padding:24px 0 12px;display:flex;flex-direction:column;gap:6px}
 .intro p{max-width:34ch;font-size:10px;line-height:1.35}
 .intro span{font-size:10px}
 
-/* ── projects list ───────────────────────────────── */
+/* ── projects list ───────────────────────────────
+   no images, no type labels: number, name, description, status */
 .list{list-style:none;border-top:1px solid var(--line)}
 .list li>*{
-  display:grid;grid-template-columns:64px minmax(0,1fr) auto;
-  grid-template-areas:"t n s" "t d d" "t k k";
-  gap:2px 14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:start
+  display:grid;grid-template-columns:3ch minmax(0,1fr) auto;
+  grid-template-areas:"no n s" ". d d";
+  gap:1px 10px;padding:9px 0;border-bottom:1px solid var(--line);align-items:baseline
 }
-.th{grid-area:t;width:64px;aspect-ratio:4/5;background:var(--line);overflow:hidden}
-.th img{width:100%;height:100%;object-fit:cover}
-.no{display:none;grid-area:no;color:var(--dim)}
-.list b{grid-area:n;font-weight:400;font-size:10px}
-.d{grid-area:d;color:var(--dim);font-size:10px;line-height:1.35}
-.k{grid-area:k;color:var(--dim);font-size:10px;padding-top:2px}
-.s{grid-area:s;text-align:right;color:var(--dim);font-size:10px;padding-top:2px}
+.no{grid-area:no;color:var(--dim)}
+.list b{grid-area:n}
+.d{grid-area:d;color:var(--dim);line-height:1.4}
+.s{grid-area:s;text-align:right;color:var(--dim)}
 .s.on{color:var(--acc)}
 .list a:active{opacity:.6}
 
@@ -104,10 +102,7 @@ dialog p{padding:10px var(--pad) 0;color:var(--dim);font-size:10px}
 @media (min-width:640px){
   :root{--pad:24px}
   body{font-size:10px}
-  .intro{padding:64px 0 28px;flex-direction:row;justify-content:space-between;align-items:end}
-  .list li>*{grid-template-columns:48px 3ch minmax(0,1fr) auto;grid-template-areas:"t no n s" "t no d d" "t no k k";gap:2px 18px}
-  .th{width:48px}
-  .no{display:block}
+  .intro{padding:40px 0 16px;flex-direction:row;justify-content:space-between;align-items:end}
   .cover,.grid,.feed{margin:0}
   .btn{display:inline-flex;width:auto}
   .grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
@@ -119,10 +114,7 @@ dialog p{padding:10px var(--pad) 0;color:var(--dim);font-size:10px}
 /* ── desktop ≥ 960px ─────────────────────────────── */
 @media (min-width:960px){
   body{font-size:10px}
-  .list li>*{grid-template-columns:40px 3ch 16ch minmax(0,1fr) 12ch 5ch;grid-template-areas:"t no n d k s";gap:0 20px;padding:10px 0;align-items:center}
-  .th{width:40px}
-  .list b{font-size:10px}
-  .d,.k,.s{font-size:10px;padding:0}
+  .list li>*{grid-template-columns:3ch 16ch minmax(0,1fr) 5ch;grid-template-areas:"no n d s";gap:0 20px;padding:7px 0}
   .t-body{grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:48px;align-items:start}
   .t-body.solo{grid-template-columns:minmax(0,1fr);max-width:640px}
   .t-intro{font-size:10px}
@@ -135,7 +127,7 @@ dialog p{padding:10px var(--pad) 0;color:var(--dim);font-size:10px}
 /* hover only where there's a real pointer */
 @media (hover:hover){
   nav a:hover{color:var(--fg)}
-  .list a:hover,.list a:hover .d,.list a:hover .no,.list a:hover .k{color:var(--acc)}
+  .list a:hover,.list a:hover .d,.list a:hover .no{color:var(--acc)}
   .crumb a:hover,.pager a:hover{color:var(--acc)}
   a.btn:hover{background:var(--acc);border-color:var(--acc);color:#fff}
   .grid a:hover img,.ph a:hover img{opacity:.85}

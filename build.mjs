@@ -79,7 +79,7 @@ projects.forEach((p, i) => {
 const live = projects.filter(p => p.app).length;
 
 // index
-const rows = projects.map(p => `<li><a href="projects/${p.slug}/"><span class="th">${p.thumb ? `<img src="${esc(p.thumb)}" alt="" width="160" height="200" loading="lazy" decoding="async">` : ''}</span><span class="no">${p.no}</span><b>${low(p.name)}</b><span class="d">${low(p.desc)}</span><span class="k">${low(p.kind)}</span><span class="s${p.app ? ' on' : ''}">${p.app ? 'live' : 'soon'}</span></a></li>`).join('\n');
+const rows = projects.map(p => `<li><a href="projects/${p.slug}/"><span class="no">${p.no}</span><b>${low(p.name)}</b><span class="d">${low(p.desc)}</span><span class="s${p.app ? ' on' : ''}">${p.app ? 'live' : 'soon'}</span></a></li>`).join('\n');
 write('index.html', page({
   active: 'projects',
   body: `<section class="intro"><p>apps, tools &amp; experiments. cameras, image processors, editors and a few other things.</p><span class="dim">${projects.length} projects / ${live} live</span></section>

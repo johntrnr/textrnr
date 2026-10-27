@@ -19,9 +19,15 @@
     "slug": "rastr",
     "name": "rastr",
     "kind": "camera",
-    "desc": "real-time camera effect.",
-    "intro": "a real-time camera effect: point the camera and the image is rebuilt live through the effect, straight from the viewfinder.",
-    "features": []
+    "desc": "real-time pixel and dither camera.",
+    "intro": "a camera that turns the live viewfinder into pixel art. every frame is downsampled and dithered into a small palette in real time, so you shoot directly in the look instead of filtering afterwards.",
+    "features": [
+      "real-time pixel and dither effect on the live camera",
+      "adjustable pixel size",
+      "ordered dithering",
+      "limited colour palettes, from 1-bit to 4-tone",
+      "capture photos in the effect"
+    ]
   },
   {
     "slug": "glyph",
@@ -159,8 +165,9 @@
     "intro": "a native macos ai upscaler in the spirit of magnific: it doesn't just enlarge an image, it rebuilds detail and texture as it goes. same goal as magnific, but built around a different approach of its own.",
     "features": [
       "native macos app",
-      "ai upscaling with creative detail generation",
-      "magnific-style results, its own approach"
+      "ai upscaling that rebuilds detail and texture, not just pixels",
+      "magnific-style creative results, built on its own approach",
+      "before / after comparison while you work"
     ]
   },
   {
@@ -182,9 +189,15 @@
     "slug": "conqur",
     "name": "conqur",
     "kind": "mobile",
-    "desc": "mobile game.",
-    "intro": "a mobile game.",
-    "features": []
+    "desc": "territory strategy game for mobile. claim zones, fortify, expand.",
+    "intro": "a territory strategy game for mobile. the map is split into zones: claim them, hold them against rival players and push your borders out, one move at a time. short sessions, simple rules, a lot of tactics.",
+    "features": [
+      "territory-control strategy on a grid map",
+      "claim, fortify and attack zones",
+      "rival players fighting for the same ground",
+      "live share of the map per player",
+      "built for one-handed play on a phone"
+    ]
   },
   {
     "slug": "minimal-ui",

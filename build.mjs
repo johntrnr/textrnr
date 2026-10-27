@@ -79,10 +79,10 @@ projects.forEach((p, i) => {
 const live = projects.filter(p => p.app).length;
 
 // index
-const rows = projects.map(p => `<li><a href="projects/${p.slug}/"><span class="no">${p.no}</span><b>${low(p.name)}</b><span class="d">${low(p.desc)}</span><span class="s${p.app ? ' on' : ''}">${p.app ? 'live' : 'soon'}</span></a></li>`).join('\n');
+const rows = projects.map(p => `<li><a href="projects/${p.slug}/"><b>${low(p.name)}</b><span class="d">${low(p.desc)}</span><span class="no">${p.no}</span></a></li>`).join('\n');
 write('index.html', page({
   active: 'projects',
-  body: `<section class="intro"><p>apps, tools &amp; experiments. cameras, image processors, editors and a few other things.</p><span class="dim">${projects.length} projects / ${live} live</span></section>
+  body: `<section class="intro"><p>apps, tools &amp; experiments. cameras, image processors, editors and a few other things.</p><span class="dim">${projects.length} projects</span></section>
 <ol class="list">
 ${rows}
 </ol>`
@@ -96,14 +96,14 @@ projects.forEach((p, i) => {
   const next = projects[(i + 1) % projects.length];
   const open = p.app
     ? `<a class="btn" href="${p.app.ext ? esc(p.app.href) : `../../${p.app.href}`}"${p.app.ext ? ' target="_blank" rel="noopener"' : ''}>open ${low(p.name)} ↗</a>`
-    : `<span class="btn off">coming soon</span>`;
+    : '';
   const feats = (p.features || []).length
     ? `<h2>features</h2><ol class="feat">${p.features.map(f => `<li>${low(f)}</li>`).join('')}</ol>`
     : '';
   write(`projects/${p.slug}/index.html`, page({
     depth: 2, active: 'projects', title: p.name, desc: p.desc,
     body: `<div class="crumb"><a href="../../">← projects</a><span class="dim">${p.no} / ${String(projects.length).padStart(2, '0')}</span></div>
-<section class="t-head"><h1>${low(p.name)}</h1><p>${low(p.kind)} · ${p.app ? '<span class="acc">live</span>' : 'soon'}</p></section>
+<section class="t-head"><h1>${low(p.name)}</h1><p>${low(p.kind)}${p.app ? ' · <span class="acc">live</span>' : ''}</p></section>
 <section class="t-body${p.cover ? '' : ' solo'}">${p.cover ? `<figure class="cover"><img src="../../${esc(p.cover)}" alt="${low(p.name)}" width="960" height="1200" decoding="async"></figure>` : ''}<div class="t-text"><h2>about</h2><p class="t-intro">${low(p.intro || p.desc)}</p>${open}${feats}</div></section>
 <nav class="pager" aria-label="more projects"><a href="../${prev.slug}/">← ${low(prev.name)}</a><a href="../${next.slug}/">${low(next.name)} →</a></nav>`
   }));

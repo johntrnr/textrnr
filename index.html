@@ -3,61 +3,32 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>TEXTRNR</title>
+<title>textrnr</title>
 <meta name="description" content="apps, tools &amp; experiments by textrnr.">
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230a0a0a'/%3E%3Crect x='10' y='10' width='3' height='3' fill='%23ff2a12'/%3E%3C/svg%3E">
-<style>
-:root{--bg:#fff;--fg:#0a0a0a;--dim:#9a9a9a;--line:#ebebeb;--acc:#ff2a12}
-@media (prefers-color-scheme:dark){:root{--bg:#0a0a0a;--fg:#ededed;--dim:#5e5e5e;--line:#1c1c1c}}
-*{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%;background:var(--bg)}
-body{background:var(--bg);color:var(--fg);font:12px/1.55 ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;max-width:1120px;margin:0 auto;padding:max(24px,env(safe-area-inset-top)) 16px 40px;min-height:100svh;display:flex;flex-direction:column}
-a{color:inherit;text-decoration:none}
-::selection{background:var(--acc);color:#fff}
-header{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
-h1{font-size:12px;font-weight:700;letter-spacing:.14em}
-h1 i{color:var(--acc);font-style:normal}
-.dim{color:var(--dim)}
-.intro{padding:72px 0 28px;display:flex;justify-content:space-between;align-items:end;gap:16px}
-.intro p{max-width:34ch}
-ol{list-style:none;border-top:1px solid var(--fg);flex:1}
-li>*{display:grid;grid-template-columns:3ch 18ch 1fr 11ch 7ch;grid-template-areas:"no n d k s";gap:0 20px;padding:11px 0;border-bottom:1px solid var(--line);align-items:baseline}
-.no{grid-area:no;color:var(--dim)}
-b{grid-area:n;font-weight:700;letter-spacing:.06em}
-.d{grid-area:d}
-.k{grid-area:k;color:var(--dim)}
-.s{grid-area:s;text-align:right}
-.off .s,.off .d{color:var(--dim)}
-a .s{color:var(--acc)}
-@media (hover:hover){a:hover{color:var(--acc)}a:hover .no,a:hover .k{color:var(--acc)}}
-a:focus-visible{outline:1px solid var(--acc);outline-offset:-1px}
-footer{display:flex;justify-content:space-between;padding-top:40px}
-@media (max-width:680px){
-  .intro{padding-top:56px;flex-direction:column;align-items:start}
-  li>*{grid-template-columns:3ch 1fr auto;grid-template-areas:"no n s" ". d d" ". k k";gap:2px 12px;padding:12px 0}
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header><h1>TEXTRNR<i>.</i></h1><span class="dim">index</span></header>
+<header><a class="brand" href="./">textrnr<i>.</i></a><nav><a href="./" aria-current="page">tools</a><a href="gallery/">gallery</a><a href="posts/">posts</a></nav></header>
+<main>
 <section class="intro"><p>apps, tools &amp; experiments. cameras, image processors, editors and a few other things.</p><span class="dim">12 projects / 0 live</span></section>
-<ol>
-<li><div class="off"><span class="no">01</span><b>FREQUENCR</b><span class="d">real-time frequency-modulation camera. neon oscilloscope lines from camera or photos.</span><span class="k">web</span><span class="s">soon</span></div></li>
-<li><div class="off"><span class="no">02</span><b>GLYPH</b><span class="d">ascii shader tool. webgl pipeline, 50+ character sets, edge detection, webcam, png / webm export.</span><span class="k">web</span><span class="s">soon</span></div></li>
-<li><div class="off"><span class="no">03</span><b>DTHRD</b><span class="d">dithering app. 12 algorithms, 10 character sets, 11 palettes, grid mosaic.</span><span class="k">ios</span><span class="s">soon</span></div></li>
-<li><div class="off"><span class="no">04</span><b>IICSA</b><span class="d">image effects studio. ascii, dither, halftone, vhs, pixel sort and more.</span><span class="k">web</span><span class="s">soon</span></div></li>
-<li><div class="off"><span class="no">05</span><b>SCANLINE</b><span class="d">vertical-line dithering from photos, video or live camera.</span><span class="k">web</span><span class="s">soon</span></div></li>
-<li><div class="off"><span class="no">06</span><b>TONE</b><span class="d">halftone overprint in 1–3 inks. riso / zine texture, am or grain screens.</span><span class="k">app</span><span class="s">soon</span></div></li>
-<li><div class="off"><span class="no">07</span><b>UPRES</b><span class="d">creative tiled upscaler. restores old photos with seedvr2 + flux.</span><span class="k">web</span><span class="s">soon</span></div></li>
-<li><div class="off"><span class="no">08</span><b>STRIDE</b><span class="d">running app. gps tracking, training plans, territory claiming.</span><span class="k">ios / web</span><span class="s">soon</span></div></li>
-<li><div class="off"><span class="no">09</span><b>MONO</b><span class="d">native photo editor. raw development meets layer editing, on metal.</span><span class="k">macos</span><span class="s">soon</span></div></li>
-<li><div class="off"><span class="no">10</span><b>UNBOUND CAMERA</b><span class="d">film camera. 20 metal-shader film simulations, full manual controls.</span><span class="k">ios</span><span class="s">soon</span></div></li>
-<li><div class="off"><span class="no">11</span><b>UNBOUND</b><span class="d">brand app. shop, community feed, quests, leaderboard, avatar studio.</span><span class="k">web</span><span class="s">soon</span></div></li>
-<li><div class="off"><span class="no">12</span><b>MINIMAL UI</b><span class="d">clean minimal interface overhaul for project zomboid, build 42.</span><span class="k">mod</span><span class="s">soon</span></div></li>
+<ol class="list">
+<li><a href="tools/frequencr/"><span class="no">01</span><b>frequencr</b><span class="d">real-time frequency-modulation camera. neon oscilloscope lines from camera or photos.</span><span class="k">web</span><span class="s">soon</span></a></li>
+<li><a href="tools/glyph/"><span class="no">02</span><b>glyph</b><span class="d">ascii shader tool. webgl pipeline, 50+ character sets, edge detection, webcam, png / webm export.</span><span class="k">web</span><span class="s">soon</span></a></li>
+<li><a href="tools/dthrd/"><span class="no">03</span><b>dthrd</b><span class="d">dithering app. 12 algorithms, 10 character sets, 11 palettes, grid mosaic.</span><span class="k">ios</span><span class="s">soon</span></a></li>
+<li><a href="tools/iicsa/"><span class="no">04</span><b>iicsa</b><span class="d">image effects studio. ascii, dither, halftone, vhs, pixel sort and more.</span><span class="k">web</span><span class="s">soon</span></a></li>
+<li><a href="tools/scanline/"><span class="no">05</span><b>scanline</b><span class="d">vertical-line dithering from photos, video or live camera.</span><span class="k">web</span><span class="s">soon</span></a></li>
+<li><a href="tools/tone/"><span class="no">06</span><b>tone</b><span class="d">halftone overprint in 1–3 inks. riso / zine texture, am or grain screens.</span><span class="k">app</span><span class="s">soon</span></a></li>
+<li><a href="tools/upres/"><span class="no">07</span><b>upres</b><span class="d">creative tiled upscaler. restores old photos with seedvr2 + flux.</span><span class="k">web</span><span class="s">soon</span></a></li>
+<li><a href="tools/stride/"><span class="no">08</span><b>stride</b><span class="d">running app. gps tracking, training plans, territory claiming.</span><span class="k">mobile / web</span><span class="s">soon</span></a></li>
+<li><a href="tools/mono/"><span class="no">09</span><b>mono</b><span class="d">native photo editor. raw development meets photoshop-style editing, on metal.</span><span class="k">macos</span><span class="s">soon</span></a></li>
+<li><a href="tools/unbound-camera/"><span class="no">10</span><b>unbound camera</b><span class="d">film camera. 20 metal-shader film simulations, full manual controls.</span><span class="k">ios</span><span class="s">soon</span></a></li>
+<li><a href="tools/unbound/"><span class="no">11</span><b>unbound</b><span class="d">brand app. shop, community feed, quests, leaderboard, avatar studio.</span><span class="k">web</span><span class="s">soon</span></a></li>
+<li><a href="tools/minimal-ui/"><span class="no">12</span><b>minimal ui</b><span class="d">clean minimal interface overhaul for project zomboid, build 42.</span><span class="k">mod</span><span class="s">soon</span></a></li>
 </ol>
+</main>
 <footer><span>©textrnr</span><span class="dim">updated 2026-10-27</span></footer>
 </body>
 </html>

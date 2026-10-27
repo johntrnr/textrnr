@@ -1,14 +1,187 @@
 [
-  { "slug": "frequencr", "name": "FREQUENCR", "kind": "web", "desc": "real-time frequency-modulation camera. neon oscilloscope lines from camera or photos." },
-  { "slug": "glyph", "name": "GLYPH", "kind": "web", "desc": "ascii shader tool. webgl pipeline, 50+ character sets, edge detection, webcam, png / webm export." },
-  { "slug": "dthrd", "name": "DTHRD", "kind": "ios", "desc": "dithering app. 12 algorithms, 10 character sets, 11 palettes, grid mosaic." },
-  { "slug": "iicsa", "name": "IICSA", "kind": "web", "desc": "image effects studio. ascii, dither, halftone, vhs, pixel sort and more." },
-  { "slug": "scanline", "name": "SCANLINE", "kind": "web", "desc": "vertical-line dithering from photos, video or live camera." },
-  { "slug": "tone", "name": "TONE", "kind": "app", "desc": "halftone overprint in 1–3 inks. riso / zine texture, am or grain screens." },
-  { "slug": "upres", "name": "UPRES", "kind": "web", "desc": "creative tiled upscaler. restores old photos with seedvr2 + flux." },
-  { "slug": "stride", "name": "STRIDE", "kind": "ios / web", "desc": "running app. gps tracking, training plans, territory claiming." },
-  { "slug": "mono", "name": "MONO", "kind": "macos", "desc": "native photo editor. raw development meets layer editing, on metal." },
-  { "slug": "unbound-camera", "name": "UNBOUND CAMERA", "kind": "ios", "desc": "film camera. 20 metal-shader film simulations, full manual controls." },
-  { "slug": "unbound", "name": "UNBOUND", "kind": "web", "desc": "brand app. shop, community feed, quests, leaderboard, avatar studio." },
-  { "slug": "minimal-ui", "name": "MINIMAL UI", "kind": "mod", "desc": "clean minimal interface overhaul for project zomboid, build 42." }
+  {
+    "slug": "frequencr",
+    "name": "FREQUENCR",
+    "kind": "web",
+    "desc": "real-time frequency-modulation camera. neon oscilloscope lines from camera or photos.",
+    "intro": "a camera that redraws whatever it sees as frequency-modulated lines: neon oscilloscope waves that bend around hands, faces and bodies. it runs live on the camera feed or on photos from your library, with a deep set of controls to push the lines from clean signal to organic, textured noise.",
+    "features": [
+      "live camera, rendered in real time with webgl shaders",
+      "import from your photo library",
+      "frequency-modulation line rendering, neon on black",
+      "lots of controls to shape the waves, from clean to organic and textured",
+      "filter / preset switcher",
+      "photo and video export",
+      "mobile-first camera interface: rounded viewfinder, vertical sliders, live log"
+    ]
+  },
+  {
+    "slug": "glyph",
+    "name": "GLYPH",
+    "kind": "web",
+    "desc": "ascii shader tool. webgl pipeline, 50+ character sets, edge detection, webcam, png / webm export.",
+    "intro": "turns images, video and your webcam into ascii art through a webgl shader pipeline. pick a character set, tune the edges and contrast, and export stills, loops, vectors or plain text.",
+    "features": [
+      "webgl ascii shader pipeline",
+      "50+ character set presets",
+      "edge detection",
+      "live webcam input",
+      "dot-matrix rendering mode",
+      "export to png, webm, svg and plain ascii text",
+      "installable pwa that works offline"
+    ]
+  },
+  {
+    "slug": "dthrd",
+    "name": "DTHRD",
+    "kind": "ios",
+    "desc": "dithering app. 12 algorithms, 10 character sets, 11 palettes, grid mosaic.",
+    "intro": "a native ios dithering app from the glyph family. take any photo and rebuild it with classic error-diffusion and ordered dithering, character sets or colour palettes, then lay results out in a grid mosaic.",
+    "features": [
+      "12 dithering algorithms",
+      "10 character sets",
+      "11 colour palettes",
+      "grid mosaic view",
+      "full adjustment controls",
+      "native swiftui app"
+    ]
+  },
+  {
+    "slug": "iicsa",
+    "name": "IICSA",
+    "kind": "web",
+    "desc": "image effects studio. ascii, dither, halftone, vhs, pixel sort and more.",
+    "intro": "a browser-based image effects studio, built mobile-first. fifteen effects in one place, from ascii and dithering to halftone, vhs and pixel sorting, tuned to feel like a native app on a phone.",
+    "features": [
+      "15 effects including ascii, dithering, halftone, vhs and pixel sort",
+      "mobile-first, touch-gesture controls",
+      "full-screen on phones, safe-area aware",
+      "one-tap download, works on ios",
+      "installable pwa with offline caching"
+    ]
+  },
+  {
+    "slug": "scanline",
+    "name": "SCANLINE",
+    "kind": "web",
+    "desc": "vertical-line dithering from photos, video or live camera.",
+    "intro": "rebuilds images out of vertical lines: tone becomes line weight and spacing, like an engraved print or a signal on a screen. works on imported photos and video, or live from the camera.",
+    "features": [
+      "vertical-line dithering",
+      "import photos or video",
+      "live camera feed",
+      "runs in the browser as a single file",
+      "mobile web app"
+    ]
+  },
+  {
+    "slug": "tone",
+    "name": "TONE",
+    "kind": "app",
+    "desc": "halftone overprint in 1–3 inks. riso / zine texture, am or grain screens.",
+    "intro": "turns photos into halftone overprints: overlapping dots and ink in one to three colours, like a two-colour poster or a riso-printed zine. it can pick the inks that suit the photo for you, or you set every screen by hand.",
+    "features": [
+      "1 to 3 colour overprint",
+      "automatic ink selection matched to the photo, or manual",
+      "dot fineness, screen angle and per-colour intensity",
+      "two screening methods: am dots and grain",
+      "three paper whites: warm, natural, white",
+      "margin, aspect ratio and corner radius",
+      "step-by-step pipeline: orig, lin, tone, gamut, separation … composite",
+      "saveable presets, including your own",
+      "png export for sharing and print",
+      "v3ktrz ink unlock: 7 extra inks, custom preset storage, high-res export"
+    ]
+  },
+  {
+    "slug": "upres",
+    "name": "UPRES",
+    "kind": "web",
+    "desc": "creative tiled upscaler. restores old photos with seedvr2 + flux.",
+    "intro": "a creative upscaler for mobile, in the spirit of magnific. images are split into tiles, each tile is upscaled by a diffusion model, then everything is stitched back together. built to bring very old photos back toward realism.",
+    "features": [
+      "tiled upscaling: split, process, re-stitch",
+      "enhance / modify / creative settings",
+      "diffusion models: seedvr2 and flux.1",
+      "old photo restoration",
+      "hosted api, nothing to install",
+      "minimal dark interface"
+    ]
+  },
+  {
+    "slug": "stride",
+    "name": "STRIDE",
+    "kind": "mobile / web",
+    "desc": "running app. gps tracking, training plans, territory claiming.",
+    "intro": "a running app that turns your runs into territory. track every run with gps, follow a training plan, and claim the streets you cover on the map.",
+    "features": [
+      "gps run tracking",
+      "training plans",
+      "maps by mapbox",
+      "territory claiming",
+      "social profile",
+      "multi-language"
+    ]
+  },
+  {
+    "slug": "mono",
+    "name": "MONO",
+    "kind": "macos",
+    "desc": "native photo editor. raw development meets photoshop-style editing, on metal.",
+    "intro": "a native macos photo editor that puts lightroom-style raw development and photoshop-style editing in one app. written in swift, rendered on metal.",
+    "features": [
+      "raw development",
+      "photoshop-style editing tools",
+      "metal-accelerated rendering",
+      "native swift 6, swiftui + appkit",
+      "light, dark and grey themes"
+    ]
+  },
+  {
+    "slug": "unbound-camera",
+    "name": "UNBOUND CAMERA",
+    "kind": "ios",
+    "desc": "film camera. 20 metal-shader film simulations, full manual controls.",
+    "intro": "the unbound camera app. twenty film simulations rendered with metal shaders, applied live, with full manual control over the shot.",
+    "features": [
+      "20 film simulation presets",
+      "metal shader-accelerated rendering",
+      "full manual controls",
+      "avfoundation capture pipeline",
+      "swiftdata photo library",
+      "native swiftui interface"
+    ]
+  },
+  {
+    "slug": "unbound",
+    "name": "UNBOUND",
+    "kind": "web",
+    "desc": "brand app. shop, community feed, quests, leaderboard, avatar studio.",
+    "intro": "the app for unbound, a streetwear and car culture community. shop, post, level up and build your avatar, all in one installable web app.",
+    "features": [
+      "shop",
+      "community feed and chat",
+      "gamified profile: xp, levels, currency",
+      "daily spin wheel",
+      "quests and achievements",
+      "leaderboard",
+      "subscription tiers",
+      "svg avatar studio"
+    ]
+  },
+  {
+    "slug": "minimal-ui",
+    "name": "MINIMAL UI",
+    "kind": "mod",
+    "desc": "clean minimal interface overhaul for project zomboid, build 42.",
+    "intro": "a project zomboid mod that rebuilds the whole interface in a clean, modern, minimal style. made for build 42.",
+    "features": [
+      "redesigned main menu",
+      "hud",
+      "inventory",
+      "health panel",
+      "crafting",
+      "options for background colour, transparency, accent colour and text size"
+    ]
+  }
 ]

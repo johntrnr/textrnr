@@ -1,7 +1,7 @@
 [
   {
     "slug": "frequencr",
-    "name": "FREQUENCR",
+    "name": "frequencr",
     "kind": "web",
     "desc": "real-time frequency-modulation camera. neon oscilloscope lines from camera or photos.",
     "intro": "a camera that redraws whatever it sees as frequency-modulated lines: neon oscilloscope waves that bend around hands, faces and bodies. it runs live on the camera feed or on photos from your library, with a deep set of controls to push the lines from clean signal to organic, textured noise.",
@@ -16,8 +16,16 @@
     ]
   },
   {
+    "slug": "rastr",
+    "name": "rastr",
+    "kind": "camera",
+    "desc": "real-time camera effect.",
+    "intro": "a real-time camera effect: point the camera and the image is rebuilt live through the effect, straight from the viewfinder.",
+    "features": []
+  },
+  {
     "slug": "glyph",
-    "name": "GLYPH",
+    "name": "glyph",
     "kind": "web",
     "desc": "ascii shader tool. webgl pipeline, 50+ character sets, edge detection, webcam, png / webm export.",
     "intro": "turns images, video and your webcam into ascii art through a webgl shader pipeline. pick a character set, tune the edges and contrast, and export stills, loops, vectors or plain text.",
@@ -32,8 +40,29 @@
     ]
   },
   {
+    "slug": "phasr",
+    "name": "phasr",
+    "kind": "web",
+    "desc": "dithering and raster studio. 105 effects, 43 retro console renderers, layers, 16× export.",
+    "intro": "a generative raster studio for dithering, ascii and pixel art. 105 effects, from classic dithering and halftone to generative systems, glitch and the exact look of 43 retro consoles, stacked as layers and exported at up to 16× resolution.",
+    "features": [
+      "105 effects in six families: pixel, systems, line, texture, glitch, retro consoles",
+      "dithering, ascii, halftone, stippling, risograph, threshold, pixel art",
+      "43 retro console renderers: game boy, nes, snes, c64, amiga, ps1, n64, pico-8…",
+      "generative systems: reaction diffusion, flow fields, lorenz attractors, boids, lenia",
+      "glitch: rgb shift, crt scanlines, pixel sorting, vhs noise, databend",
+      "multi-layer compositing with blend modes",
+      "duo, tri and quad tone colour matrix, custom palettes, random colour schemes",
+      "image adjustments, post-processing, borders and mattes",
+      "presets",
+      "batch processing",
+      "export png, jpeg and svg at up to 16× resolution",
+      "mobile layout with bottom sheets"
+    ]
+  },
+  {
     "slug": "dthrd",
-    "name": "DTHRD",
+    "name": "dthrd",
     "kind": "ios",
     "desc": "dithering app. 12 algorithms, 10 character sets, 11 palettes, grid mosaic.",
     "intro": "a native ios dithering app from the glyph family. take any photo and rebuild it with classic error-diffusion and ordered dithering, character sets or colour palettes, then lay results out in a grid mosaic.",
@@ -48,7 +77,7 @@
   },
   {
     "slug": "iicsa",
-    "name": "IICSA",
+    "name": "iicsa",
     "kind": "web",
     "desc": "image effects studio. ascii, dither, halftone, vhs, pixel sort and more.",
     "intro": "a browser-based image effects studio, built mobile-first. fifteen effects in one place, from ascii and dithering to halftone, vhs and pixel sorting, tuned to feel like a native app on a phone.",
@@ -62,7 +91,7 @@
   },
   {
     "slug": "scanline",
-    "name": "SCANLINE",
+    "name": "scanline",
     "kind": "web",
     "desc": "vertical-line dithering from photos, video or live camera.",
     "intro": "rebuilds images out of vertical lines: tone becomes line weight and spacing, like an engraved print or a signal on a screen. works on imported photos and video, or live from the camera.",
@@ -76,7 +105,7 @@
   },
   {
     "slug": "tone",
-    "name": "TONE",
+    "name": "tone",
     "kind": "app",
     "desc": "halftone overprint in 1–3 inks. riso / zine texture, am or grain screens.",
     "intro": "turns photos into halftone overprints: overlapping dots and ink in one to three colours, like a two-colour poster or a riso-printed zine. it can pick the inks that suit the photo for you, or you set every screen by hand.",
@@ -94,8 +123,27 @@
     ]
   },
   {
+    "slug": "gradr",
+    "name": "gradr",
+    "kind": "web",
+    "desc": "gradient generator. linear, radial, conic and mesh gradients, grain, wallpaper sizes.",
+    "intro": "a minimal gradient studio for abstract backgrounds and wallpapers. build linear, radial, conic or mesh gradients, add grain and finish, and export at the exact size of your phone, laptop or post.",
+    "features": [
+      "linear, radial, conic and mesh gradients",
+      "colour stops with opacity, draggable mesh nodes",
+      "smoothing modes: linear, smooth, cosine, cubic, oklab",
+      "grain, vignette, blur and anti-banding dither",
+      "brightness, contrast, saturation and hue",
+      "colour harmony generator: analogous, complementary, triadic…",
+      "24 presets: minimal, vibrant, dark, pastel, aura",
+      "16 sizes: iphone, galaxy, pixel, ipad, macbook, 4k, story, x and youtube banners",
+      "export png, jpeg, webp, svg and css",
+      "installable pwa that works offline"
+    ]
+  },
+  {
     "slug": "upres",
-    "name": "UPRES",
+    "name": "upres",
     "kind": "web",
     "desc": "creative tiled upscaler. restores old photos with seedvr2 + flux.",
     "intro": "a creative upscaler for mobile, in the spirit of magnific. images are split into tiles, each tile is upscaled by a diffusion model, then everything is stitched back together. built to bring very old photos back toward realism.",
@@ -109,8 +157,22 @@
     ]
   },
   {
+    "slug": "mono",
+    "name": "mono",
+    "kind": "macos",
+    "desc": "native photo editor. raw development meets photoshop-style editing, on metal.",
+    "intro": "a native macos photo editor that puts lightroom-style raw development and photoshop-style editing in one app. written in swift, rendered on metal.",
+    "features": [
+      "raw development",
+      "photoshop-style editing tools",
+      "metal-accelerated rendering",
+      "native swift 6, swiftui + appkit",
+      "light, dark and grey themes"
+    ]
+  },
+  {
     "slug": "stride",
-    "name": "STRIDE",
+    "name": "stride",
     "kind": "mobile / web",
     "desc": "running app. gps tracking, training plans, territory claiming.",
     "intro": "a running app that turns your runs into territory. track every run with gps, follow a training plan, and claim the streets you cover on the map.",
@@ -124,54 +186,16 @@
     ]
   },
   {
-    "slug": "mono",
-    "name": "MONO",
-    "kind": "macos",
-    "desc": "native photo editor. raw development meets photoshop-style editing, on metal.",
-    "intro": "a native macos photo editor that puts lightroom-style raw development and photoshop-style editing in one app. written in swift, rendered on metal.",
-    "features": [
-      "raw development",
-      "photoshop-style editing tools",
-      "metal-accelerated rendering",
-      "native swift 6, swiftui + appkit",
-      "light, dark and grey themes"
-    ]
-  },
-  {
-    "slug": "unbound-camera",
-    "name": "UNBOUND CAMERA",
-    "kind": "ios",
-    "desc": "film camera. 20 metal-shader film simulations, full manual controls.",
-    "intro": "the unbound camera app. twenty film simulations rendered with metal shaders, applied live, with full manual control over the shot.",
-    "features": [
-      "20 film simulation presets",
-      "metal shader-accelerated rendering",
-      "full manual controls",
-      "avfoundation capture pipeline",
-      "swiftdata photo library",
-      "native swiftui interface"
-    ]
-  },
-  {
-    "slug": "unbound",
-    "name": "UNBOUND",
-    "kind": "web",
-    "desc": "brand app. shop, community feed, quests, leaderboard, avatar studio.",
-    "intro": "the app for unbound, a streetwear and car culture community. shop, post, level up and build your avatar, all in one installable web app.",
-    "features": [
-      "shop",
-      "community feed and chat",
-      "gamified profile: xp, levels, currency",
-      "daily spin wheel",
-      "quests and achievements",
-      "leaderboard",
-      "subscription tiers",
-      "svg avatar studio"
-    ]
+    "slug": "conqur",
+    "name": "conqur",
+    "kind": "mobile",
+    "desc": "mobile game.",
+    "intro": "a mobile game.",
+    "features": []
   },
   {
     "slug": "minimal-ui",
-    "name": "MINIMAL UI",
+    "name": "minimal ui",
     "kind": "mod",
     "desc": "clean minimal interface overhaul for project zomboid, build 42.",
     "intro": "a project zomboid mod that rebuilds the whole interface in a clean, modern, minimal style. made for build 42.",

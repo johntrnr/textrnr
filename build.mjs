@@ -1,6 +1,6 @@
 // textrnr — builds the whole site. no dependencies. run: node build.mjs
 //   index.html            ← projects.json + apps/
-//   tools/<slug>/         ← one page per project
+//   projects/<slug>/      ← one page per project (cover from covers/<slug>.jpg)
 //   gallery/index.html    ← every image in gallery/
 //   posts/index.html      ← posts.json (x.com posts)
 import { readFileSync, writeFileSync, readdirSync, existsSync, statSync, mkdirSync, rmSync } from 'node:fs';
@@ -16,7 +16,7 @@ const today = new Date().toISOString().slice(0, 10);
 
 // ── shared shell ───────────────────────────────────────────────
 const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230a0a0a'/%3E%3Crect x='10' y='10' width='3' height='3' fill='%23ff2a12'/%3E%3C/svg%3E";
-const NAV = [['tools', ''], ['gallery', 'gallery/'], ['posts', 'posts/']];
+const NAV = [['projects', ''], ['gallery', 'gallery/'], ['posts', 'posts/']];
 
 function page({ depth = 0, active = '', title = '', desc = 'apps, tools & experiments by textrnr.', body, scripts = '' }) {
   const r = '../'.repeat(depth);
@@ -38,7 +38,7 @@ function page({ depth = 0, active = '', title = '', desc = 'apps, tools & experi
 <main>
 ${body}
 </main>
-<footer><span>©textrnr</span><span class="dim">updated ${today}</span></footer>
+<footer><span class="dim">updated ${today}</span></footer>
 ${scripts}</body>
 </html>
 `;
@@ -62,6 +62,7 @@ for (const [slug, a] of apps) {
 }
 
 const covers = new Map(ls('covers').filter(f => IMG.test(f)).map(f => [f.replace(IMG, '').toLowerCase(), `covers/${f}`]));
+const thumbs = new Map(ls('covers/thumbs').filter(f => IMG.test(f)).map(f => [f.replace(IMG, '').toLowerCase(), `covers/thumbs/${f}`]));
 
 projects.forEach((p, i) => {
   p.slug = p.slug.toLowerCase();
@@ -69,21 +70,23 @@ projects.forEach((p, i) => {
   const local = apps.get(p.slug);
   p.app = local ? { href: local.href, ext: false } : p.url ? { href: p.url, ext: true } : null;
   p.cover = covers.get(p.slug);
+  p.thumb = thumbs.get(p.slug) || p.cover;
 });
 const live = projects.filter(p => p.app).length;
 
 // index
-const rows = projects.map(p => `<li><a href="tools/${p.slug}/"><span class="no">${p.no}</span><b>${low(p.name)}</b><span class="d">${low(p.desc)}</span><span class="k">${low(p.kind)}</span><span class="s${p.app ? ' on' : ''}">${p.app ? 'live' : 'soon'}</span></a></li>`).join('\n');
+const rows = projects.map(p => `<li><a href="projects/${p.slug}/"><span class="th">${p.thumb ? `<img src="${esc(p.thumb)}" alt="" width="160" height="200" loading="lazy" decoding="async">` : ''}</span><span class="no">${p.no}</span><b>${low(p.name)}</b><span class="d">${low(p.desc)}</span><span class="k">${low(p.kind)}</span><span class="s${p.app ? ' on' : ''}">${p.app ? 'live' : 'soon'}</span></a></li>`).join('\n');
 write('index.html', page({
-  active: 'tools',
+  active: 'projects',
   body: `<section class="intro"><p>apps, tools &amp; experiments. cameras, image processors, editors and a few other things.</p><span class="dim">${projects.length} projects / ${live} live</span></section>
 <ol class="list">
 ${rows}
 </ol>`
 }));
 
-// one page per tool
+// one page per project
 rmSync('tools', { recursive: true, force: true });
+rmSync('projects', { recursive: true, force: true });
 projects.forEach((p, i) => {
   const prev = projects[(i - 1 + projects.length) % projects.length];
   const next = projects[(i + 1) % projects.length];
@@ -91,14 +94,14 @@ projects.forEach((p, i) => {
     ? `<a class="btn" href="${p.app.ext ? esc(p.app.href) : `../../${p.app.href}`}"${p.app.ext ? ' target="_blank" rel="noopener"' : ''}>open ${low(p.name)} ↗</a>`
     : `<span class="btn off">coming soon</span>`;
   const feats = (p.features || []).length
-    ? `<div><h2>features</h2><ol class="feat">${p.features.map(f => `<li>${low(f)}</li>`).join('')}</ol></div>`
+    ? `<h2>features</h2><ol class="feat">${p.features.map(f => `<li>${low(f)}</li>`).join('')}</ol>`
     : '';
-  write(`tools/${p.slug}/index.html`, page({
-    depth: 2, active: 'tools', title: p.name, desc: p.desc,
-    body: `<div class="crumb"><a href="../../">← tools</a><span class="dim">${p.no} / ${String(projects.length).padStart(2, '0')}</span></div>
-<section class="t-head"><h1>${low(p.name)}</h1><p>${low(p.kind)} · ${p.app ? '<span class="acc">live</span>' : 'soon'}</p>${p.cover ? `<img class="cover" src="../../${esc(p.cover)}" alt="${low(p.name)}" loading="lazy" decoding="async">` : ''}</section>
-<section class="t-body"><div><h2>about</h2><p class="t-intro">${low(p.intro || p.desc)}</p>${open}</div>${feats}</section>
-<nav class="pager" aria-label="more tools"><a href="../${prev.slug}/">← ${low(prev.name)}</a><a href="../${next.slug}/">${low(next.name)} →</a></nav>`
+  write(`projects/${p.slug}/index.html`, page({
+    depth: 2, active: 'projects', title: p.name, desc: p.desc,
+    body: `<div class="crumb"><a href="../../">← projects</a><span class="dim">${p.no} / ${String(projects.length).padStart(2, '0')}</span></div>
+<section class="t-head"><h1>${low(p.name)}</h1><p>${low(p.kind)} · ${p.app ? '<span class="acc">live</span>' : 'soon'}</p></section>
+<section class="t-body${p.cover ? '' : ' solo'}">${p.cover ? `<figure class="cover"><img src="../../${esc(p.cover)}" alt="${low(p.name)}" width="960" height="1200" decoding="async"></figure>` : ''}<div class="t-text"><h2>about</h2><p class="t-intro">${low(p.intro || p.desc)}</p>${open}${feats}</div></section>
+<nav class="pager" aria-label="more projects"><a href="../${prev.slug}/">← ${low(prev.name)}</a><a href="../${next.slug}/">${low(next.name)} →</a></nav>`
   }));
 });
 
@@ -146,4 +149,4 @@ ${feed.length
   scripts: feed.length ? LIGHTBOX : ''
 }));
 
-console.log(`built — ${projects.length} tools (${live} live), ${shots.length} gallery images, ${feed.length}/${wanted.size} posts`);
+console.log(`built — ${projects.length} projects (${live} live), ${shots.length} gallery images, ${feed.length}/${wanted.size} posts`);

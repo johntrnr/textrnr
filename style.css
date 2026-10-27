@@ -35,7 +35,8 @@ nav{display:flex;gap:2px;margin-right:-10px}
 nav a{color:var(--dim);padding:10px;min-height:44px;display:flex;align-items:center}
 nav a[aria-current]{color:var(--fg)}
 nav a[aria-current]::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--acc);margin-right:5px}
-footer{padding-top:48px;color:var(--dim);font-size:12px}
+footer{padding-top:48px;color:var(--dim);font-size:12px;display:flex;justify-content:space-between;align-items:center}
+.sq{display:block;width:8px;height:8px;background:var(--acc)}
 
 /* ── page intro ──────────────────────────────────── */
 .intro{padding:24px 0 12px;display:flex;flex-direction:column;gap:6px}

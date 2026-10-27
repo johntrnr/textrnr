@@ -42,7 +42,7 @@ function page({ depth = 0, active = '', title = '', desc = 'apps, tools & experi
 <main>
 ${body}
 </main>
-<footer>updated ${stamp}</footer>
+<footer><span>updated ${stamp}</span><i class="sq" aria-hidden="true"></i></footer>
 ${scripts}</body>
 </html>
 `;

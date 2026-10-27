@@ -102,6 +102,18 @@ projects.forEach((p, i) => {
   }));
 });
 
+// ── lightbox (gallery + posts) ─────────────────────────────────
+const LIGHTBOX = `<dialog id="lb"><img alt=""><p></p></dialog>
+<script>
+const d=document.getElementById('lb'),im=d.querySelector('img'),cap=d.querySelector('p'),a=[...document.querySelectorAll('a.lb')];let k=0;
+const show=i=>{k=(i+a.length)%a.length;im.src=a[k].href;cap.textContent=a[k].dataset.cap||'';};
+a.forEach((l,i)=>l.onclick=e=>{e.preventDefault();show(i);d.showModal();});
+d.onclick=()=>d.close();
+addEventListener('keydown',e=>{if(!d.open)return;if(e.key==='ArrowRight')show(k+1);if(e.key==='ArrowLeft')show(k-1);});
+</script>
+`;
+const img = (src, alt, w, h) => `<img src="${esc(src)}" alt="${low(alt)}"${w && h ? ` width="${w}" height="${h}"` : ''} loading="lazy" decoding="async">`;
+
 // ── gallery ────────────────────────────────────────────────────
 // newest first by filename: name files like 2026-10-27-night-drive.jpg
 const shots = ls('gallery').filter(f => IMG.test(f)).sort().reverse();
@@ -110,32 +122,28 @@ write('gallery/index.html', page({
   depth: 1, active: 'gallery', title: 'gallery', desc: 'photos and work by textrnr.',
   body: `<section class="intro"><p>photos, renders and outputs from the tools.</p><span class="dim">${shots.length} images</span></section>
 ${shots.length
-    ? `<div class="grid">${shots.map(f => `<a href="${esc(f)}"><img src="${esc(f)}" alt="${low(caption(f))}" loading="lazy" decoding="async"></a>`).join('')}</div>
-<dialog id="lb"><img alt=""><p></p></dialog>`
+    ? `<div class="grid">${shots.map(f => `<a class="lb" href="${esc(f)}" data-cap="${low(caption(f))}">${img(f, caption(f))}</a>`).join('')}</div>`
     : `<p class="empty">nothing here yet.</p>`}`,
-  scripts: shots.length ? `<script>
-const d=document.getElementById('lb'),im=d.querySelector('img'),cap=d.querySelector('p'),a=[...document.querySelectorAll('.grid a')];let k=0;
-const show=i=>{k=(i+a.length)%a.length;im.src=a[k].href;cap.textContent=a[k].firstChild.alt;};
-a.forEach((l,i)=>l.onclick=e=>{e.preventDefault();show(i);d.showModal();});
-d.onclick=()=>d.close();
-addEventListener('keydown',e=>{if(!d.open)return;if(e.key==='ArrowRight')show(k+1);if(e.key==='ArrowLeft')show(k-1);});
-</script>
-` : ''
+  scripts: shots.length ? LIGHTBOX : ''
 }));
 
-// ── posts (x.com) ──────────────────────────────────────────────
+// ── posts ──────────────────────────────────────────────────────
+// photos downloaded from the x posts in posts.json (see fetch-posts.mjs)
 const { handle, posts = [] } = JSON.parse(readFileSync('posts.json', 'utf8'));
-const tweet = u => {
-  const m = String(u).match(/(?:x|twitter)\.com\/([^/]+)\/status\/(\d+)/i);
-  return m ? `<blockquote class="twitter-tweet" data-dnt="true" data-theme="light" data-conversation="none"><a href="https://twitter.com/${esc(m[1])}/status/${m[2]}">post by @${esc(m[1])}</a></blockquote>` : '';
-};
+const wanted = new Set(posts.map(u => (String(u).match(/status(?:es)?\/(\d+)/) || [])[1]).filter(Boolean));
+const fetched = existsSync('posts/data.json') ? JSON.parse(readFileSync('posts/data.json', 'utf8')) : [];
+const feed = fetched.filter(p => wanted.has(p.id) && p.photos?.length);
+const nPhotos = feed.reduce((n, p) => n + p.photos.length, 0);
 write('posts/index.html', page({
-  depth: 1, active: 'posts', title: 'posts', desc: `photo posts by @${handle} on x.`,
-  body: `<section class="intro"><p>photo posts from x.</p><a class="dim" href="https://x.com/${esc(handle)}/media" target="_blank" rel="noopener">@${esc(handle)} on x ↗</a></section>
-${posts.length
-    ? `<div class="posts">${posts.map(tweet).join('\n')}</div>`
-    : `<div class="timeline"><a class="twitter-timeline" data-dnt="true" data-theme="light" data-chrome="noheader nofooter noborders transparent" data-tweet-limit="20" href="https://twitter.com/${esc(handle)}">posts by @${esc(handle)}</a></div>`}`,
-  scripts: `<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>\n`
+  depth: 1, active: 'posts', title: 'posts', desc: 'photo posts by textrnr.',
+  body: `<section class="intro"><p>photo posts.</p><span class="dim">${feed.length} posts / ${nPhotos} photos</span></section>
+${feed.length
+    ? `<div class="feed">${feed.map(p => {
+        const cap = [p.date, p.text].filter(Boolean).join(' — ');
+        return `<article><div class="ph n${Math.min(p.photos.length, 2)}">${p.photos.map(f => `<a class="lb" href="${esc(f.src)}" data-cap="${low(cap)}">${img(f.src, p.text || `post ${p.date}`, f.width, f.height)}</a>`).join('')}</div><p><span class="dim">${esc(p.date)}</span>${p.text ? ` ${low(p.text)}` : ''}</p></article>`;
+      }).join('\n')}</div>`
+    : `<p class="empty">nothing here yet.</p>`}`,
+  scripts: feed.length ? LIGHTBOX : ''
 }));
 
-console.log(`built — ${projects.length} tools (${live} live), ${shots.length} gallery images, ${posts.length} posts`);
+console.log(`built — ${projects.length} tools (${live} live), ${shots.length} gallery images, ${feed.length}/${wanted.size} posts`);

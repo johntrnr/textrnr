@@ -65,9 +65,15 @@ dialog img{display:block;max-width:calc(100vw - 32px);max-height:calc(100svh - 8
 dialog p{padding-top:8px;color:var(--dim)}
 
 /* posts */
-.posts{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:0 24px;align-items:start}
-.posts .twitter-tweet{margin:0 auto 24px!important}
-.timeline{max-width:560px}
+.feed{columns:3 300px;column-gap:24px}
+.feed article{break-inside:avoid;margin-bottom:40px}
+.ph{display:grid;gap:4px}
+.ph.n2{grid-template-columns:1fr 1fr}
+.ph a{display:block;background:var(--line)}
+.ph img{display:block;width:100%;height:auto}
+.ph.n2 img{aspect-ratio:1;object-fit:cover;height:100%}
+.ph a:hover img{opacity:.85}
+.feed p{padding-top:10px}
 .empty{padding:40px 0;color:var(--dim)}
 
 @media (max-width:680px){

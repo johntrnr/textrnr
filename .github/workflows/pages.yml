@@ -6,13 +6,13 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -22,8 +22,29 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
-      - name: build index from apps/
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: fetch photos from x posts
+        continue-on-error: true
+        run: node fetch-posts.mjs
+
+      - name: save new photos to the repo
+        continue-on-error: true
+        run: |
+          if [ -n "$(git status --porcelain posts)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
+            git add posts
+            git commit -m "add photos from x posts"
+            git push
+          fi
+
+      - name: build site
         run: node build.mjs
+
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

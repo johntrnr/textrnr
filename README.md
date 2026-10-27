@@ -31,19 +31,20 @@ drop images into `gallery/`. newest first by file name, so use dates: `2026-10-2
 
 ## posts
 
-add links to your x posts in `posts.json`:
+paste links to your x photo posts into `posts.json`. on the next publish, github downloads
+their photos into `posts/img/` (saved in this repo, so the site never loads anything from x)
+and the posts page shows them, newest first, with the date and the post's text.
 
 ```json
 {
   "handle": "textrnr",
   "posts": [
-    "https://x.com/textrnr/status/1234567890",
-    "https://x.com/textrnr/status/1234567891"
+    "https://x.com/textrnr/status/2114711724347793480"
   ]
 }
 ```
 
-with an empty list, the page shows your latest posts from x.com/textrnr instead.
+remove a link to hide that post. `fetch-posts.mjs` does the downloading.
 
 ## files
 
@@ -51,7 +52,8 @@ with an empty list, the page shows your latest posts from x.com/textrnr instead.
 | --- | --- |
 | `style.css` | the whole design |
 | `build.mjs` | writes `index.html`, `tools/`, `gallery/index.html`, `posts/index.html` |
-| `.github/workflows/pages.yml` | builds and deploys on every push to `main` |
+| `fetch-posts.mjs` | downloads photos from the x posts in `posts.json` |
+| `.github/workflows/pages.yml` | fetches post photos, builds and deploys on every push to `main` |
 
 generated pages are overwritten on every build, so edit the json files, not the html. run `node build.mjs` to preview locally.
 

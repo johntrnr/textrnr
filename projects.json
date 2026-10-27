@@ -104,25 +104,6 @@
     ]
   },
   {
-    "slug": "tone",
-    "name": "tone",
-    "kind": "app",
-    "desc": "halftone overprint in 1–3 inks. riso / zine texture, am or grain screens.",
-    "intro": "turns photos into halftone overprints: overlapping dots and ink in one to three colours, like a two-colour poster or a riso-printed zine. it can pick the inks that suit the photo for you, or you set every screen by hand.",
-    "features": [
-      "1 to 3 colour overprint",
-      "automatic ink selection matched to the photo, or manual",
-      "dot fineness, screen angle and per-colour intensity",
-      "two screening methods: am dots and grain",
-      "three paper whites: warm, natural, white",
-      "margin, aspect ratio and corner radius",
-      "step-by-step pipeline: orig, lin, tone, gamut, separation … composite",
-      "saveable presets, including your own",
-      "png export for sharing and print",
-      "v3ktrz ink unlock: 7 extra inks, custom preset storage, high-res export"
-    ]
-  },
-  {
     "slug": "gradr",
     "name": "gradr",
     "kind": "web",
@@ -169,6 +150,14 @@
       "native swift 6, swiftui + appkit",
       "light, dark and grey themes"
     ]
+  },
+  {
+    "slug": "dense",
+    "name": "dense",
+    "kind": "macos",
+    "desc": "native macos app.",
+    "intro": "a native macos app.",
+    "features": []
   },
   {
     "slug": "stride",

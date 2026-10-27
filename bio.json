@@ -6,13 +6,13 @@
   "active": "active since 2022",
   "statement": [
     "tex (textrnr) is a belgian hybrid artist working at the meeting point of photography, artificial intelligence and code.",
-    "an early adopter of generative image models, he began publishing ai work in 2022 with disco diffusion and stable diffusion — one of those early pieces reached 12 million views and 500,000 likes. his body of work now counts more than 400 artworks, released as 1/1s and editions across superrare, foundation, transient labs, objkt and ninfa, with total sales of 52 eth.",
+    "an early adopter of generative image models, he began publishing ai work in 2022 with disco diffusion and stable diffusion — one of those early pieces reached 12 million views and 500,000 likes. his body of work now counts more than 400 artworks, released as 1/1s and editions across superrare, foundation, transient labs, objkt and ninfa, with total sales of 64 eth.",
     "his work is quiet and atmospheric: buildings, homes and ordinary neighbourhoods caught at different hours of the day, and more recently blurred night photography in neon reds and deep blues. critics have described it as “a nuanced and understated style that sets him apart from his peers”.",
     "alongside the art, tex designs and engineers his own creative software — real-time cameras, dithering and halftone studios, upscalers and editors — and is the founder of unbound, a streetwear and car culture community."
   ],
   "figures": [
     {
-      "value": "52 eth",
+      "value": "64 eth",
       "label": "total sales"
     },
     {
@@ -81,7 +81,7 @@
         },
         {
           "k": "2024",
-          "v": "400+ artworks and 52 eth in total sales"
+          "v": "400+ artworks and 64 eth in total sales"
         },
         {
           "k": "2026",
@@ -169,7 +169,7 @@
           "v": "golden littoral — 1/1, superrare — 2022–23"
         },
         {
-          "k": "52 eth",
+          "k": "64 eth",
           "v": "total sales across all marketplaces"
         }
       ]
@@ -205,16 +205,16 @@
           "v": "ascii shader tool"
         },
         {
-          "k": "tone",
-          "v": "halftone overprint studio"
-        },
-        {
           "k": "gradr",
           "v": "gradient generator"
         },
         {
           "k": "upres",
           "v": "creative diffusion upscaler"
+        },
+        {
+          "k": "dense",
+          "v": "native macos app"
         },
         {
           "k": "all projects",

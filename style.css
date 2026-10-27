@@ -71,7 +71,7 @@ dialog p{padding-top:8px;color:var(--dim)}
 .ph.n2{grid-template-columns:1fr 1fr}
 .ph a{display:block;background:var(--line)}
 .ph img{display:block;width:100%;height:auto}
-.ph.n2 img{aspect-ratio:1;object-fit:cover;height:100%}
+.ph.n2 img{aspect-ratio:4/5;object-fit:cover;height:auto}
 .ph a:hover img{opacity:.85}
 .feed p{padding-top:10px}
 .empty{padding:40px 0;color:var(--dim)}

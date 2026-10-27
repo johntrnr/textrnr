@@ -6,7 +6,7 @@
   "active": "active since 2022",
   "statement": [
     "tex (textrnr) is a belgian hybrid artist working at the meeting point of photography, artificial intelligence and code.",
-    "an early adopter of generative image models, he began publishing ai work in 2022 with disco diffusion and stable diffusion — one of those early pieces reached 12 million views and 500,000 likes. since then he has released 1/1s and editions across superrare, foundation, transient labs, objkt and ninfa, with total sales of 52 eth.",
+    "an early adopter of generative image models, he began publishing ai work in 2022 with disco diffusion and stable diffusion — one of those early pieces reached 12 million views and 500,000 likes. his body of work now counts more than 400 artworks, released as 1/1s and editions across superrare, foundation, transient labs, objkt and ninfa, with total sales of 52 eth.",
     "his work is quiet and atmospheric: buildings, homes and ordinary neighbourhoods caught at different hours of the day, and more recently blurred night photography in neon reds and deep blues. critics have described it as “a nuanced and understated style that sets him apart from his peers”.",
     "alongside the art, tex designs and engineers his own creative software — real-time cameras, dithering and halftone studios, upscalers and editors — and is the founder of unbound, a streetwear and car culture community."
   ],
@@ -14,6 +14,10 @@
     {
       "value": "52 eth",
       "label": "total sales"
+    },
+    {
+      "value": "400+",
+      "label": "artworks"
     },
     {
       "value": "12m",
@@ -26,10 +30,6 @@
     {
       "value": "6",
       "label": "marketplaces"
-    },
-    {
-      "value": "9",
-      "label": "collections & series"
     },
     {
       "value": "14",
@@ -68,20 +68,27 @@
           "v": "early stable diffusion works — one piece reaches 12m views and 500k likes"
         },
         {
+          "k": "2022",
+          "v": "listed in exquisite workers' “50 ai artists to follow on twitter”"
+        },
+        {
           "k": "2022–23",
           "v": "collections existence and breathe on foundation"
         },
         {
           "k": "2023",
-          "v": "featured in kaloh's “6 emerging ai artists to keep an eye on in 2023”",
-          "url": "https://www.kaloh.xyz/p/keeping-pace-with-the-ai-art-movement"
+          "v": "featured in kaloh's “6 emerging ai artists to keep an eye on in 2023”"
         },
         {
           "k": "2026",
-          "v": "night photography series; releases frequencr, phasr, gradr and other creative tools",
-          "url": "../"
+          "v": "400+ artworks and 52 eth in total sales; night photography series and new creative tools"
         }
       ]
+    },
+    {
+      "title": "exhibitions",
+      "layout": "inline",
+      "rows": []
     },
     {
       "title": "collections",
@@ -89,48 +96,39 @@
       "rows": [
         {
           "k": "existence",
-          "v": "foundation · 30+ works · buildings, homes and neighbourhoods through the day",
-          "url": "https://foundation.app/@Textrnr"
+          "v": "foundation · 2022–23 · 30+ works · buildings, homes and neighbourhoods through the day"
         },
         {
           "k": "breathe",
-          "v": "foundation",
-          "url": "https://foundation.app/@Textrnr"
+          "v": "foundation · 2022–23"
         },
         {
           "k": "chromatic dreams",
-          "v": "transient labs · “a chromatic collection about my dreams”",
-          "url": "https://www.transient.xyz/nfts/ethereum/0xd9402f88dfea1f96f5e15da49c3c5e0016ebaef7"
+          "v": "transient labs · “a chromatic collection about my dreams”"
         },
         {
           "k": "remember",
-          "v": "transient labs",
-          "url": "https://www.transient.xyz/nfts/ethereum/0xb3eae77099f0cc5b9a93c99d223a92507001c9c8"
+          "v": "transient labs"
         },
         {
           "k": "the last house",
-          "v": "transient labs",
-          "url": "https://www.transient.xyz/nfts/ethereum/0x72b5c849f0eeba90dc0b337d8b7e21f88d44d269"
+          "v": "transient labs"
         },
         {
           "k": "palm springs when the sun goes down",
-          "v": "transient labs",
-          "url": "https://www.transient.xyz/nfts/ethereum/0x6e88da3e7662c482296a1a5c1c4a6db704d8c89a"
+          "v": "transient labs"
         },
         {
           "k": "moments.",
-          "v": "transient labs · 1/1 · “a reminder that everything passes, but some moments stay with us”",
-          "url": "https://www.transient.xyz/mint/moments"
+          "v": "transient labs · 1/1 · “a reminder that everything passes, but some moments stay with us”"
         },
         {
           "k": "textrnr",
-          "v": "transient labs · artist contract",
-          "url": "https://www.transient.xyz/nfts/ethereum/0xcd507fb6e1323f7d03662e306de63669798fdb5d"
+          "v": "transient labs · artist contract"
         },
         {
           "k": "1/1s",
-          "v": "superrare · alone, golden littoral, burned",
-          "url": "https://superrare.com/textrnr"
+          "v": "superrare · 2022–23 · alone, golden littoral, burned"
         }
       ]
     },
@@ -139,14 +137,20 @@
       "layout": "inline",
       "rows": [
         {
+          "k": "3 eth",
+          "v": "1/1 — 2022–23"
+        },
+        {
           "k": "2.5 eth",
-          "v": "alone — 1/1, superrare",
-          "url": "https://superrare.com/textrnr"
+          "v": "alone — 1/1, superrare — 2022–23"
+        },
+        {
+          "k": "1.88 eth",
+          "v": "1/1 — 2022–23"
         },
         {
           "k": "0.35 eth",
-          "v": "golden littoral — 1/1, superrare",
-          "url": "https://superrare.com/textrnr"
+          "v": "golden littoral — 1/1, superrare — 2022–23"
         },
         {
           "k": "52 eth",
@@ -160,8 +164,11 @@
       "rows": [
         {
           "k": "kaloh, 2023",
-          "v": "“6 emerging ai artists to keep an eye on in 2023” — “a photographer who has artfully integrated ai into his work.”",
-          "url": "https://www.kaloh.xyz/p/keeping-pace-with-the-ai-art-movement"
+          "v": "“6 emerging ai artists to keep an eye on in 2023” — “a photographer who has artfully integrated ai into his work”, with “a nuanced and understated style that sets him apart from his peers”. highlights the collections existence and breathe."
+        },
+        {
+          "k": "exquisite workers, 2022",
+          "v": "“50 ai artists to follow on twitter, part #1” — listed at #16 for his minimalist ai interiors: quiet rooms with plants on the windowsill and views onto sunny cities and mountains."
         }
       ]
     },
@@ -171,38 +178,31 @@
       "rows": [
         {
           "k": "frequencr",
-          "v": "real-time frequency-modulation camera",
-          "url": "../projects/frequencr/"
+          "v": "real-time frequency-modulation camera"
         },
         {
           "k": "phasr",
-          "v": "dithering and raster studio, 105 effects",
-          "url": "../projects/phasr/"
+          "v": "dithering and raster studio, 105 effects"
         },
         {
           "k": "glyph",
-          "v": "ascii shader tool",
-          "url": "../projects/glyph/"
+          "v": "ascii shader tool"
         },
         {
           "k": "tone",
-          "v": "halftone overprint studio",
-          "url": "../projects/tone/"
+          "v": "halftone overprint studio"
         },
         {
           "k": "gradr",
-          "v": "gradient generator",
-          "url": "../projects/gradr/"
+          "v": "gradient generator"
         },
         {
           "k": "upres",
-          "v": "creative diffusion upscaler",
-          "url": "../projects/upres/"
+          "v": "creative diffusion upscaler"
         },
         {
           "k": "all projects",
-          "v": "14 apps, tools and experiments",
-          "url": "../"
+          "v": "14 apps, tools and experiments"
         }
       ]
     },
@@ -215,40 +215,6 @@
           "v": "founder, creative direction and development — a streetwear and car culture community"
         }
       ]
-    }
-  ],
-  "links": [
-    {
-      "name": "x",
-      "url": "https://x.com/textrnr"
-    },
-    {
-      "name": "instagram",
-      "url": "https://instagram.com/textrnr"
-    },
-    {
-      "name": "superrare",
-      "url": "https://superrare.com/textrnr"
-    },
-    {
-      "name": "foundation",
-      "url": "https://foundation.app/@Textrnr"
-    },
-    {
-      "name": "transient",
-      "url": "https://www.transient.xyz/@textrnr"
-    },
-    {
-      "name": "objkt",
-      "url": "https://objkt.com/profile/textrnr/created"
-    },
-    {
-      "name": "ninfa",
-      "url": "https://ninfa.io/@Textrnr"
-    },
-    {
-      "name": "opensea",
-      "url": "https://opensea.io/textrnr"
     }
   ]
 }

@@ -124,17 +124,15 @@ const smOf = (dir, src) => { const i = src.lastIndexOf('/') + 1; const sm = `${s
 const img = (src, alt, w, h) => `<img src="${esc(src)}" alt="${low(alt)}"${w && h ? ` width="${w}" height="${h}"` : ''} loading="lazy" decoding="async">`;
 
 // ── bio ────────────────────────────────────────────────────────
+// plain text only, no links. sections with no rows are hidden.
 const B = JSON.parse(readFileSync('bio.json', 'utf8'));
-const isExt = u => /^https?:/.test(u || '');
-const link = (u, t) => !u ? t : `<a href="${esc(u)}"${isExt(u) ? ' target="_blank" rel="noopener"' : ''}>${t}${isExt(u) ? ' ↗' : ''}</a>`;
 const section = (title, inner) => `<section class="cv-sec"><h2>${low(title)}</h2><div>${inner}</div></section>`;
 write('bio/index.html', page({
   depth: 1, active: 'bio', title: 'bio', desc: B.statement[0],
-  body: `<section class="cv-head"><p>${low(B.name)} <span class="dim">(${low(B.alias)})</span></p><p class="dim">${[B.role, B.location, B.active].map(low).join(' · ')}</p></section>
+  body: `<section class="cv-head"><p class="dim">${[B.role, B.location, B.active].map(low).join(' · ')}</p></section>
 <ul class="figs">${B.figures.map(f => `<li><span>${low(f.value)}</span><span class="dim">${low(f.label)}</span></li>`).join('')}</ul>
 ${section('statement', `<div class="stmt">${B.statement.map(t => `<p>${low(t)}</p>`).join('')}</div>`)}
-${B.sections.map(sec => section(sec.title, `<ul class="rows ${sec.layout === 'inline' ? 'inline' : 'stack'}">${sec.rows.map(r => `<li><span class="rk">${link(r.url, low(r.k))}</span><span class="rv">${low(r.v)}</span></li>`).join('')}</ul>`)).join('\n')}
-${section('elsewhere', `<ul class="links">${B.links.map(l => `<li>${link(l.url, low(l.name))}</li>`).join('')}</ul>`)}`
+${B.sections.filter(sec => sec.rows?.length).map(sec => section(sec.title, `<ul class="rows ${sec.layout === 'inline' ? 'inline' : 'stack'}">${sec.rows.map(r => `<li><span class="rk">${low(r.k)}</span><span class="rv">${low(r.v)}</span></li>`).join('')}</ul>`)).join('\n')}`
 }));
 
 // ── posts ──────────────────────────────────────────────────────

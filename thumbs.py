@@ -25,7 +25,7 @@ def cover_thumbs():
     for f in sorted(glob.glob('covers/*')):
         if not f.lower().endswith(EXT): continue
         out = f'covers/thumbs/{os.path.splitext(os.path.basename(f))[0]}.jpg'
-        if os.path.exists(out) and os.path.getmtime(out) >= os.path.getmtime(f): continue
+        if os.path.exists(out): continue  # delete a thumb to regenerate it
         ImageOps.fit(ImageOps.exif_transpose(Image.open(f)).convert('RGB'), (160, 200), Image.LANCZOS).save(out, quality=80, optimize=True)
         print('made', out)
 

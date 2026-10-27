@@ -12,7 +12,11 @@ const low = s => esc(String(s || '').toLowerCase());
 const pick = (html, re) => (html.match(re) || [])[1]?.trim() || '';
 const ls = d => (existsSync(d) ? readdirSync(d).filter(f => !f.startsWith('.')) : []);
 const write = (f, s) => { mkdirSync(dirname(f), { recursive: true }); writeFileSync(f, s); };
-const today = new Date().toISOString().slice(0, 10);
+const now = new Date();
+const today = now.toISOString().slice(0, 10);
+const stamp = now.toLocaleString('sv-SE', { timeZone: 'Europe/Brussels' }).slice(0, 16); // build time, brussels
+// css is inlined into every page so a cached stylesheet can never mismatch the html
+const CSS = readFileSync('style.css', 'utf8').replace(/\/\*[\s\S]*?\*\//g, '').replace(/\s*\n\s*/g, '').replace(/\s*([{};:,>])\s*/g, '$1').trim();
 
 // ── shared shell ───────────────────────────────────────────────
 const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230a0a0a'/%3E%3Crect x='10' y='10' width='3' height='3' fill='%23ff2a12'/%3E%3C/svg%3E";
@@ -31,14 +35,14 @@ function page({ depth = 0, active = '', title = '', desc = 'apps, tools & experi
 <meta name="color-scheme" content="light">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="${FAVICON}">
-<link rel="stylesheet" href="${r}style.css">
+<style>${CSS}</style>
 </head>
 <body>
 <header><a class="brand" href="${r || './'}">textrnr<i>.</i></a><nav>${nav}</nav></header>
 <main>
 ${body}
 </main>
-<footer><span class="dim">updated ${today}</span></footer>
+<footer>updated ${stamp}</footer>
 ${scripts}</body>
 </html>
 `;

@@ -113,8 +113,10 @@ const show=i=>{k=(i+a.length)%a.length;im.src=a[k].href;cap.textContent=a[k].dat
 a.forEach((l,i)=>l.onclick=e=>{e.preventDefault();show(i);d.showModal();});
 d.onclick=()=>d.close();
 addEventListener('keydown',e=>{if(!d.open)return;if(e.key==='ArrowRight')show(k+1);if(e.key==='ArrowLeft')show(k-1);});
+let x0=null;d.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});d.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>40){e.preventDefault();show(k+(dx<0?1:-1));}});
 </script>
 `;
+const smOf = (dir, src) => { const i = src.lastIndexOf('/') + 1; const sm = `${src.slice(0, i)}sm/${src.slice(i)}`; return existsSync(`${dir}/${sm}`) ? sm : src; };
 const img = (src, alt, w, h) => `<img src="${esc(src)}" alt="${low(alt)}"${w && h ? ` width="${w}" height="${h}"` : ''} loading="lazy" decoding="async">`;
 
 // ── gallery ────────────────────────────────────────────────────
@@ -125,7 +127,7 @@ write('gallery/index.html', page({
   depth: 1, active: 'gallery', title: 'gallery', desc: 'photos and work by textrnr.',
   body: `<section class="intro"><p>photos, renders and outputs from the tools.</p><span class="dim">${shots.length} images</span></section>
 ${shots.length
-    ? `<div class="grid">${shots.map(f => `<a class="lb" href="${esc(f)}" data-cap="${low(caption(f))}">${img(f, caption(f))}</a>`).join('')}</div>`
+    ? `<div class="grid">${shots.map(f => `<a class="lb" href="${esc(f)}" data-cap="${low(caption(f))}">${img(smOf('gallery', f), caption(f))}</a>`).join('')}</div>`
     : `<p class="empty">nothing here yet.</p>`}`,
   scripts: shots.length ? LIGHTBOX : ''
 }));
@@ -143,7 +145,7 @@ write('posts/index.html', page({
 ${feed.length
     ? `<div class="feed">${feed.map(p => {
         const cap = [p.date, p.text].filter(Boolean).join(' — ');
-        return `<article><div class="ph n${Math.min(p.photos.length, 2)}">${p.photos.map(f => `<a class="lb" href="${esc(f.src)}" data-cap="${low(cap)}">${img(f.src, p.text || `post ${p.date}`, f.width, f.height)}</a>`).join('')}</div><p><span class="dim">${esc(p.date)}</span>${p.text ? ` ${low(p.text)}` : ''}</p></article>`;
+        return `<article><div class="ph n${Math.min(p.photos.length, 2)}">${p.photos.map(f => `<a class="lb" href="${esc(f.src)}" data-cap="${low(cap)}">${img(smOf('posts', f.src), p.text || `post ${p.date}`, f.width, f.height)}</a>`).join('')}</div><p><span class="dim">${esc(p.date)}</span>${p.text ? ` ${low(p.text)}` : ''}</p></article>`;
       }).join('\n')}</div>`
     : `<p class="empty">nothing here yet.</p>`}`,
   scripts: feed.length ? LIGHTBOX : ''

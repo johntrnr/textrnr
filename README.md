@@ -55,7 +55,10 @@ remove a link to hide that post. `fetch-posts.mjs` does the downloading.
 | `style.css` | the whole design |
 | `build.mjs` | writes `index.html`, `projects/`, `gallery/index.html`, `posts/index.html` |
 | `fetch-posts.mjs` | downloads photos from the x posts in `posts.json` |
+| `thumbs.py` | makes small copies of images for phones |
 | `.github/workflows/pages.yml` | fetches post photos, builds and deploys on every push to `main` |
+
+`thumbs.py` makes phone-sized copies of post and gallery photos (and list thumbnails for covers); the publish action runs it.
 
 generated pages are overwritten on every build, so edit the json files, not the html. run `node build.mjs` to preview locally.
 

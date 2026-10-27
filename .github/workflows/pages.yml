@@ -31,13 +31,19 @@ jobs:
         continue-on-error: true
         run: node fetch-posts.mjs
 
+      - name: make phone-sized copies of images
+        continue-on-error: true
+        run: |
+          python3 -m pip install --quiet --break-system-packages pillow || python3 -m pip install --quiet pillow
+          python3 thumbs.py
+
       - name: save new photos to the repo
         continue-on-error: true
         run: |
-          if [ -n "$(git status --porcelain posts)" ]; then
+          if [ -n "$(git status --porcelain posts gallery covers)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
-            git add posts
+            git add posts gallery covers
             git commit -m "add photos from x posts"
             git push
           fi

@@ -1,0 +1,14 @@
+[
+  { "slug": "frequencr", "name": "FREQUENCR", "kind": "web", "desc": "real-time frequency-modulation camera. neon oscilloscope lines from camera or photos." },
+  { "slug": "glyph", "name": "GLYPH", "kind": "web", "desc": "ascii shader tool. webgl pipeline, 50+ character sets, edge detection, webcam, png / webm export." },
+  { "slug": "dthrd", "name": "DTHRD", "kind": "ios", "desc": "dithering app. 12 algorithms, 10 character sets, 11 palettes, grid mosaic." },
+  { "slug": "iicsa", "name": "IICSA", "kind": "web", "desc": "image effects studio. ascii, dither, halftone, vhs, pixel sort and more." },
+  { "slug": "scanline", "name": "SCANLINE", "kind": "web", "desc": "vertical-line dithering from photos, video or live camera." },
+  { "slug": "tone", "name": "TONE", "kind": "app", "desc": "halftone overprint in 1–3 inks. riso / zine texture, am or grain screens." },
+  { "slug": "upres", "name": "UPRES", "kind": "web", "desc": "creative tiled upscaler. restores old photos with seedvr2 + flux." },
+  { "slug": "stride", "name": "STRIDE", "kind": "ios / web", "desc": "running app. gps tracking, training plans, territory claiming." },
+  { "slug": "mono", "name": "MONO", "kind": "macos", "desc": "native photo editor. raw development meets layer editing, on metal." },
+  { "slug": "unbound-camera", "name": "UNBOUND CAMERA", "kind": "ios", "desc": "film camera. 20 metal-shader film simulations, full manual controls." },
+  { "slug": "unbound", "name": "UNBOUND", "kind": "web", "desc": "brand app. shop, community feed, quests, leaderboard, avatar studio." },
+  { "slug": "minimal-ui", "name": "MINIMAL UI", "kind": "mod", "desc": "clean minimal interface overhaul for project zomboid, build 42." }
+]

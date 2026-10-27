@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>TEXTRNR</title>
+<meta name="description" content="apps, tools &amp; experiments by textrnr.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230a0a0a'/%3E%3Crect x='10' y='10' width='3' height='3' fill='%23ff2a12'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#fff;--fg:#0a0a0a;--dim:#9a9a9a;--line:#ebebeb;--acc:#ff2a12}
+@media (prefers-color-scheme:dark){:root{--bg:#0a0a0a;--fg:#ededed;--dim:#5e5e5e;--line:#1c1c1c}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
+body{background:var(--bg);color:var(--fg);font:12px/1.55 ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;max-width:1120px;margin:0 auto;padding:max(24px,env(safe-area-inset-top)) 16px 40px;min-height:100svh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--acc);color:#fff}
+header{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+h1{font-size:12px;font-weight:700;letter-spacing:.14em}
+h1 i{color:var(--acc);font-style:normal}
+.dim{color:var(--dim)}
+.intro{padding:72px 0 28px;display:flex;justify-content:space-between;align-items:end;gap:16px}
+.intro p{max-width:34ch}
+ol{list-style:none;border-top:1px solid var(--fg);flex:1}
+li>*{display:grid;grid-template-columns:3ch 18ch 1fr 11ch 7ch;grid-template-areas:"no n d k s";gap:0 20px;padding:11px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.no{grid-area:no;color:var(--dim)}
+b{grid-area:n;font-weight:700;letter-spacing:.06em}
+.d{grid-area:d}
+.k{grid-area:k;color:var(--dim)}
+.s{grid-area:s;text-align:right}
+.off .s,.off .d{color:var(--dim)}
+a .s{color:var(--acc)}
+@media (hover:hover){a:hover{color:var(--acc)}a:hover .no,a:hover .k{color:var(--acc)}}
+a:focus-visible{outline:1px solid var(--acc);outline-offset:-1px}
+footer{display:flex;justify-content:space-between;padding-top:40px}
+@media (max-width:680px){
+  .intro{padding-top:56px;flex-direction:column;align-items:start}
+  li>*{grid-template-columns:3ch 1fr auto;grid-template-areas:"no n s" ". d d" ". k k";gap:2px 12px;padding:12px 0}
+}
+</style>
+</head>
+<body>
+<header><h1>TEXTRNR<i>.</i></h1><span class="dim">index</span></header>
+<section class="intro"><p>apps, tools &amp; experiments. cameras, image processors, editors and a few other things.</p><span class="dim">{{count}}</span></section>
+<ol>
+{{rows}}
+</ol>
+<footer><span>©textrnr</span><span class="dim">updated {{updated}}</span></footer>
+</body>
+</html>
